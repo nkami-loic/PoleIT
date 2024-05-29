@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Contactez-nous{% endblock %}
+
+{% block body %}
+    <div tabindex="-1" aria-labelledby="exampleModalLabel">
+        <div class="modal-dialog modal-dialog-centered modal-xl">
+            <div class="modal-content">
+                <div class="modal-body p-0">
+                    <div class="container-fluid">
+                        <div class="row gy-4">
+                            <div class="col-lg-4 col-sm-12 bg-cover"
+                                 style="background-image: url('{{ asset('assets/img/c2.jpg') }}'); min-height:300px;">
+                                <div>
+                                </div>
+                            </div>
+                            <div class="col-lg-8">
+                                <form class="p-lg-5 col-12 row g-3" method="post" action="{{ path('app_contact_submit') }}">
+                                    <div>
+                                        <h1>Entrer en contact avec nous</h1>
+                                        <p>N'hésitez pas à nous contacter et nous vous répondrons dans les plus brefs délais</p>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <label for="userName" class="form-label">Nom</label>
+                                        <input type="text" class="form-control" placeholder="Jon" id="userName" name="userName" aria-describedby="emailHelp">
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <label for="userSurname" class="form-label">Prénom</label>
+                                        <input type="text" class="form-control" placeholder="Doe" id="userSurname" name="userSurname" aria-describedby="emailHelp">
+                                    </div>
+                                    <div class="col-12">
+                                        <label for="userEmail" class="form-label">Adresse E-mail</label>
+                                        <input type="email" class="form-control" placeholder="Johndoe@example.com" id="userEmail" name="userEmail" aria-describedby="emailHelp">
+                                    </div>
+                                    <div class="col-12">
+                                        <label for="message" class="form-label">Ecrire un message</label>
+                                        <textarea name="message" placeholder="This is looking great and nice." class="form-control" id="message" rows="4"></textarea>
+                                    </div>
+                                    <div class="col-12">
+                                        <button type="submit" class="btn btn-brand">Envoyer</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

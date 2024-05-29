@@ -1,0 +1,365 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <body data-bs-spy="scroll" data-bs-target=".navbar" data-bs-offset="70">
+
+    <!-- SLIDER -->
+    <div class="owl-carousel owl-theme hero-slider">
+        <div class="slide slide1">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 text-center text-white">
+                        <h6 class="text-white text-uppercase">Nos Dernières Publications</h6>
+                        <h1 class="display-3 my-4">Découverte d'une Exoplanète <br />Potentiellement Habitable</h1>
+                        <a href="#" class="btn btn-brand">Voir Plus...</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slide slide2">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 col-lg-10 offset-lg-1 text-white">
+                        <h6 class="text-white text-uppercase">Nos Dernières Publications</h6>
+                        <h1 class="display-3 my-4">Lancement Réussi du Télescope <br />Spatial PoleIt</h1>
+                        <a href="#" class="btn btn-brand">Voir Plus...</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slide slide3">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 text-center text-white">
+                        <h6 class="text-white text-uppercase">Nos Dernières Publications</h6>
+                        <h1 class="display-3 my-4">Conférence Annuelle PoleIt: Réunir les <br />Esprits Brillants</h1>
+                        <a href="#" class="btn btn-brand">Voir Plus...</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slide slide4">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 col-lg-10 offset-lg-1 text-white">
+                        <h6 class="text-white text-uppercase">Nos Dernières Publications</h6>
+                        <h1 class="display-3 my-4">Une Nuit d'Observations <br />Exceptionnelles au PoleIt</h1>
+                        <a href="#" class="btn btn-brand">Voir Plus...</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="bg-light" id="portfolio">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="intro">
+                        <h1>Nos Différentes Activités</h1>
+                        <p class="mx-auto">POLEIT est une entreprise d'astronomie innovante, offrant des observations solaires, des
+                            radiotélescopes avancés et des visites lunaires en réalité virtuelle. Elle possède un observatoire
+                            high-tech, un télescope spatial pour des images de l'univers lointain, et un planétarium avec des
+                            spectacles éducatifs captivants, se positionnant ainsi comme un leader en astronomie.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="projects-slider" class="owl-theme owl-carousel">
+            <div class="project">
+                <div class="overlay"></div>
+                <img src="{{ asset('assets/img/caro1.jpeg') }}" alt="">
+                <div class="content">
+                    <h2>Observatoire Lunaire</h2>
+                    <h6>L'univers à portée de main</h6>
+                </div>
+            </div>
+            <div class="project">
+                <div class="overlay"></div>
+                <img src="{{ asset('assets/img/caro2.jpeg') }}" alt="">
+                <div class="content">
+                    <h2>Planétarium</h2>
+                    <h6>L'univers à portée de main</h6>
+                </div>
+            </div>
+            <div class="project">
+                <div class="overlay"></div>
+                <img src="{{ asset('assets/img/caro3.jpeg') }}" alt="">
+                <div class="content">
+                    <h2>Radiotéléscope</h2>
+                    <h6>L'univers à portée de main</h6>
+                </div>
+            </div>
+            <div class="project">
+                <div class="overlay"></div>
+                <img src="{{ asset('assets/img/caro7.jpeg') }}" alt="">
+                <div class="content">
+                    <h2>Téléscope Spatial</h2>
+                    <h6>L'univers à portée de main</h6>
+                </div>
+            </div>
+            <div class="project">
+                <div class="overlay"></div>
+                <img src="{{ asset('assets/img/caro5.jpeg') }}" alt="">
+                <div class="content">
+                    <h2>Observation solaire</h2>
+                    <h6>L'univers à portée de main</h6>
+                </div>
+            </div>
+            <div class="project">
+                <div class="overlay"></div>
+                <img src="{{ asset('assets/img/caro6.jpeg') }}" alt="">
+                <div class="content">
+                    <h2>Visite sur la Lune</h2>
+                    <h6>L'univers à portée de main</h6>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROJET AVENIR -->
+
+    <section id="blog">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="intro">
+                        <h1>Blog Projet Avenir</h1>
+                        <p class="mx-auto">Contrary to popular belief, Lorem Ipsum is not simply random text. It has
+                            roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                {% for article in articles %}
+                    <div class="col-md-4">
+                        <article class="blog-post">
+                            <img src="{{ asset('uploads/article/' ~ article.imagePath) }}" alt="">
+                            <a href="#" class="tag"></a> <!-- Assurez-vous que la catégorie est disponible dans votre entité Article -->
+                            <div class="content">
+                                <small>10 juin 2024</small>
+                                <h5>{{ article.titre }}</h5>
+                                <p>{{ article.description }}</p>
+                            </div>
+                        </article>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ABOUT -->
+    <section id="about">
+        <div class="container">
+            <div>
+                <h1> A PROPOS DE NOUS</h1>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-5 py-5">
+                    <div class="row">
+
+                        <div class="col-12">
+                            <div class="info-box">
+                                <img src="{{ asset('assets/img/Desktop - 1.svg') }}" alt="">
+                                <div class="ms-4">
+                                    <h5>Lexcellence en Astronomie Moderne</h5>
+                                    <p>POLEIT excelle en astronomie avec des observations solaires, radiotélescopes, visites lunaires
+                                        en VR, un observatoire de pointe, un télescope spatial et un planétarium, faisant de nous un leader dans le domaine. </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 mt-4">
+                            <div class="info-box">
+                                <img src="{{ asset('assets/img/Desktop - 2.svg') }}" alt="">
+                                <div class="ms-4">
+                                    <h5>Séminaires et Formations</h5>
+                                    <p>POLEIT propose des formations et des séminaires spécialisés en astronomie, combinant théorie et
+                                        pratique pour enrichir les connaissances des passionnés et des professionnels. </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 mt-4">
+                            <div class="info-box">
+                                <img src="{{ asset('assets/img/Desktop - 3.svg') }}" alt="">
+                                <div class="ms-4">
+                                    <h5>E-Commerce</h5>
+                                    <p>POLEIT vend des accessoires et appareils d'astronomie via notre boutique en ligne, offrant
+                                        une large gamme de produits pour les passionnés et les professionnels. </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="apropos col-lg-5">
+                    <img src="{{ asset('assets/img/apropos new.svg') }}" alt="">
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- TEAM -->
+    <section id="team">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="intro">
+                        <h1>Notre Équipe</h1>
+                        <p class="mx-auto">Rencontrez l'équipe talentueuse et passionnée de POLEIT, dédiée à l'exploration des étoiles et à la découverte de l'univers.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="card">
+                        <img src="{{ asset('assets/img/loic.jpg') }}" alt="" class="img-fluid">
+                        <div class="card-body">
+                            <h5 class="card-title">NKAMI Loic</h5>
+                            <p class="card-text">Directeur Général (DG)</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="card">
+                        <img src="{{ asset('assets/img/yan.jpg') }}" alt="" class="img-fluid">
+                        <div class="card-body">
+                            <h5 class="card-title">NGUIEMENI Nike</h5>
+                            <p class="card-text">Président Directeur Général (CEO)</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="card">
+                        <img src="{{ asset('assets/img/farouck.jpg') }}" alt="" class="img-fluid">
+                        <div class="card-body">
+                            <h5 class="card-title">LATOUNDJI Farouck</h5>
+                            <p class="card-text">Directeur des Opérations et de l'exploitation (DOE)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- REVIEWS -->
+    <section class="bg-light" id="reviews">
+        <div class="owl-theme owl-carousel reviews-slider container">
+            <div class="review">
+                <div class="person">
+                    <img src="{{ asset('assets/img/team_1.jpg') }}" alt="">
+                    <h5>NKAMI Loic</h5>
+                    <small>Directeur Général (DG)</small>
+                </div>
+                <h3>Gère les opérations quotidiennes, met en œuvre les stratégies du CEO, supervise les équipes et assure
+                    l'efficacité des processus internes. Il veille à la réalisation des projets dans les délais et budgets
+                    tout en maintenant la qualité.</h3>
+                <div class="stars">
+                    <i class='bx bxs-star'></i>
+                    <i class='bx bxs-star'></i>
+                    <i class='bx bxs-star'></i>
+                    <i class='bx bxs-star'></i>
+                    <i class="bx bxs-star-half"></i>
+                </div>
+                <i class='bx bxs-quote-alt-left'></i>
+            </div>
+            <div class="review">
+                <div class="person">
+                    <img src="{{ asset('assets/img/team_2.jpg') }}" alt="">
+                    <h5>NGUIEMENI Nike</h5>
+                    <small>Président Directeur Général (CEO)</small>
+                </div>
+                <h3>Dirige l'entreprise en définissant les objectifs stratégiques,
+                    supervisant les opérations et assurant la croissance. Il inspire l'équipe, favorise l'innovation et
+                    représente POLEIT auprès des partenaires et clients pour renforcer sa position de leader en astronomie
+                    et technologies immersives.</h3>
+                <div class="stars">
+                    <i class='bx bxs-star'></i>
+                    <i class='bx bxs-star'></i>
+                    <i class='bx bxs-star'></i>
+                    <i class='bx bxs-star'></i>
+                    <i class="bx bxs-star-half"></i>
+                </div>
+                <i class='bx bxs-quote-alt-left'></i>
+            </div>
+            <div class="review">
+                <div class="person">
+                    <img src="{{ asset('assets/img/team_31.jpg') }}" alt="">
+                    <h5>FAROUCK Latoundi</h5>
+                    <small>Directeur des Opérations et de l'exploitation (DOE)</small>
+                </div>
+                <h3>Le Directeur des Opérations et de l'Exploitation de POLEIT, FAROUCK Latoundi, coordonne les activités
+                    quotidiennes, optimise les processus opérationnels et supervise les infrastructures techniques pour
+                    garantir une performance optimale et l'efficacité des projets.</h3>
+                <div class="stars">
+                    <i class='bx bxs-star'></i>
+                    <i class='bx bxs-star'></i>
+                    <i class='bx bxs-star'></i>
+                    <i class='bx bxs-star'></i>
+                    <i class="bx bxs-star-half"></i>
+                </div>
+                <i class='bx bxs-quote-alt-left'></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- MILESTONE -->
+    <section id="milestone">
+        <div class="container">
+            <div class="row text-center justify-content-center gy-4">
+                <div class="col-lg-2 col-sm-6">
+                    <h1 class="display-4">90K+</h1>
+                    <p class="mb-0">Personnes Inscrit</p>
+                </div>
+                <div class="col-lg-2 col-sm-6">
+                    <h1 class="display-4">45M</h1>
+                    <p class="mb-0">Visiteurs du Site</p>
+                </div>
+                <div class="col-lg-2 col-sm-6">
+                    <h1 class="display-4">190</h1>
+                    <p class="mb-0">Personnes Formées</p>
+                </div>
+                <div class="col-lg-2 col-sm-6">
+                    <h1 class="display-4">5</h1>
+                    <p class="mb-0">Formations</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        $(document).ready(function(){
+            $('.hero-slider').owlCarousel({
+                loop: true,
+                margin: 10,
+                nav: true,
+                items: 1,
+                navText: ["<i class='bx bx-left-arrow-alt'></i>", "<i class='bx bx-right-arrow-alt'></i>"],
+                dots: false,
+                autoplay: true,
+                autoplayTimeout: 5000
+            });
+            $('#projects-slider').owlCarousel({
+                loop: true,
+                margin: 10,
+                nav: false,
+                items: 3,
+                dots: true,
+                autoplay: true,
+                autoplayTimeout: 5000,
+                responsive:{
+                    0:{
+                        items: 1
+                    },
+                    600:{
+                        items: 2
+                    },
+                    1000:{
+                        items: 3
+                    }
+                }
+            });
+        });
+    </script>
+    </body>
+{% endblock %}

@@ -1,0 +1,62 @@
+{# templates/security/login.html.twig #}
+{% extends 'base.html.twig' %}
+
+{% block title %}Connexion{% endblock %}
+
+{% block body %}
+    <div  tabindex="-1" aria-labelledby="connexionModalLabel" >
+        <div class="modal-dialog modal-dialog-centered modal-xl">
+            <div class="modal-content">
+                <div class="modal-body p-0">
+                    <div class="container-fluid">
+                        <div class="row gy-4">
+                            <div class="col-lg-4 col-sm-12 bg-cover"
+                                 style="background-image: url('{{ asset('assets/img/connexion.jpeg') }}'); min-height:300px;">
+                                <div>
+                                </div>
+                            </div>
+                            <div class="col-lg-8">
+                                {% if error %}
+                                    <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                                {% endif %}
+
+                                {% if app.user %}
+                                    <div class="mb-3">
+                                        Vous êtes connecté(e) comme {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Me déconnecter</a>
+                                    </div>
+                                {% endif %}
+
+                                <form action="{{ path('app_login') }}" method="post" class="p-lg-5 col-12 row g-3">
+                                    <div>
+                                        <h1>CONNEXION</h1>
+                                    </div>
+
+                                    <div class="col-12">
+                                        <label for="inputEmail" class="form-label">Adresse E-mail</label>
+                                        <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
+                                    </div>
+                                    <div class="col-12">
+                                        <label for="inputPassword" class="form-label">Mot de passe</label>
+                                        <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
+                                    </div>
+                                    <input type="hidden" name="_csrf_token"
+                                           value="{{ csrf_token('authenticate') }}">
+                                    <div class="text-center col-12">
+                                        <button type="submit" class="btn btn-brand">Se Connecter</button>
+                                    </div>
+                                </form>
+
+                                <div>
+                                    <p>Si vous n'êtes pas inscrit, cliquez ici <a href="{{ path('app_register') }}">S'inscrire</a></p>
+                                </div>
+                                <div>
+                                    <p>Vous avez oublié votre mot de passe ? Cliquez ici <a href="{{ path('forgotten_password') }}">Mot de passe oublié</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
